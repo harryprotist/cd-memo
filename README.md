@@ -10,4 +10,5 @@ new entries or edit existing ones.
 
 ## Setup
 
-Add `export $CD-MEMO=/path/to/dirs.lst` to your `.bashrc` or equivalent.
+Add `export $CD_MEMO=/path/to/dirs.txt` to your `.bashrc` or equivalent.
+Add `source /path/to/cd-memo` to your `.bashrc or equivalent.
