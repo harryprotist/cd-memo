@@ -1,11 +1,14 @@
-#!/bin/bash
-
 add() {
   echo "$1:$2" >> "$CD_MEMO"
 }
 
 lookup() {
-  cd $(echo "$(grep -P "^$1:" "$CD_MEMO" | tail -n1 | cut -d":" -f2)")
+  cdir=$(echo "$(grep -P "^$1:" "$CD_MEMO" | tail -n1 | cut -d":" -f2)")
+  if test -z "$cdir"; then
+    echo "$1 does not exist"
+    return
+  fi
+  cd "$cdir"
 }
 
 c() {
