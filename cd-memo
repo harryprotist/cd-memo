@@ -5,7 +5,7 @@ add() {
 }
 
 lookup() {
-  cd $(echo "$(grep -P "^$1:" "$CD_MEMO" | cut -d":" -f2)")
+  cd $(echo "$(grep -P "^$1:" "$CD_MEMO" | tail -n1 | cut -d":" -f2)")
 }
 
 c() {
@@ -15,8 +15,8 @@ c() {
   fi
 
   if [[ $1 == "-m" ]]; then
-    dir=$( (test -n "$2" && $2) || pwd )
-    test -n "$2" && add "$2" && return
+    dir=$( (test -n "$3" && echo "$3") || pwd )
+    test -n "$2" && add "$2" "$dir" && return
     echo "usage: $0 -m <name> [dir]"
   else
     test -n "$1" && lookup "$1" && return
