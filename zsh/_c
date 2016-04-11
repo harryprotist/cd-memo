@@ -1,0 +1,11 @@
+#compdef c
+_c() {
+  local -a cd_dirs
+  cd_dirs=( ${(@f)"$(cat $CD_MEMO)"} )
+  
+  _describe 'dirs' cd_dirs
+
+  #_describe 'directory names' cd_dirs
+}
+
+_c
