@@ -12,3 +12,8 @@ new entries or edit existing ones.
 
 Add `export $CD_MEMO=/path/to/dirs.txt` to your `.bashrc` or equivalent.
 Add `source /path/to/cd-memo` to your `.bashrc or equivalent.
+
+### Zsh Autocomplete
+
+If you want zsh autocompletion, then add the `zsh` directory to your `$fpath`
+and run `chmod +x zsh/_c`.

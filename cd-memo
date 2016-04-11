@@ -1,3 +1,5 @@
+#!/bin/bash
+
 add() {
   echo "$1:$2" >> "$CD_MEMO"
 }
