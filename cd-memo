@@ -1,0 +1,25 @@
+#!/bin/bash
+
+add() {
+  echo "$1:$2" >> "$CD_MEMO"
+}
+
+lookup() {
+  cd $(echo "$(grep -P "^$1:" "$CD_MEMO" | cut -d":" -f2)")
+}
+
+c() {
+  if test -z "$CD_MEMO"; then
+    echo "set \$CD_MEMO in your .bashrc!"
+    return
+  fi
+
+  if [[ $1 == "-m" ]]; then
+    dir=$( (test -n "$2" && $2) || pwd )
+    test -n "$2" && add "$2" && return
+    echo "usage: $0 -m <name> [dir]"
+  else
+    test -n "$1" && lookup "$1" && return
+    echo "usage: $0 <name>"
+  fi
+}
